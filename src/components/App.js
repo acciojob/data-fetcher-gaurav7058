@@ -33,7 +33,7 @@ const DataFetcher = () => {
     <div>
       {error && <h1>An error occurred: {error}</h1>} {/* Display error if exists */}
       {products.length === 0 ? (
-        <p>Looding...</p> // Show no data message if array is empty
+        <p>No data found</p> // Show no data message if array is empty
       ) : (
         products.map((item) => (
           <>
