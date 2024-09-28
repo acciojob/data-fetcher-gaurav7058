@@ -26,7 +26,7 @@ const DataFetcher = () => {
           setError(err.message); // Update state with error message
         });
     };
-    getData();
+    getData();  
   }, []);
 
   return (
@@ -36,7 +36,7 @@ const DataFetcher = () => {
         <h1>No data found</h1> // Show no data message if array is empty
       ) : (
         products.map((item) => (
-          <pre key={item.id}>{JSON.stringify(item, null, 2)}</pre> // Convert item to JSON string for display
+          <pre key={item.id}><h1>{JSON.stringify(item, null, 2)}</h1></pre> // Convert item to JSON string for display
         ))
       )}
     </div>
