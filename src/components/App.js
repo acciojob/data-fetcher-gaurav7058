@@ -31,9 +31,9 @@ const DataFetcher = () => {
 
   return (
     <div>
-      {error && <p>Error: {error}</p>} {/* Display error if exists */}
+      {error && <h1>An error occurred: {error}</h1>} {/* Display error if exists */}
       {products.length === 0 ? (
-        <p>No data found</p> // Show no data message if array is empty
+        <h1>No data found</h1> // Show no data message if array is empty
       ) : (
         products.map((item) => (
           <pre key={item.id}>{JSON.stringify(item, null, 2)}</pre> // Convert item to JSON string for display
