@@ -33,10 +33,15 @@ const DataFetcher = () => {
     <div>
       {error && <h1>An error occurred: {error}</h1>} {/* Display error if exists */}
       {products.length === 0 ? (
-        <h1>No data found</h1> // Show no data message if array is empty
+        <p>Looding...</p> // Show no data message if array is empty
       ) : (
         products.map((item) => (
-          <pre key={item.id}><h1>{JSON.stringify(item, null, 2)}</h1></pre> // Convert item to JSON string for display
+          <>
+          <div className="" key={item.id}>
+          <h1 >Data Fetched from API</h1>
+          <pre key={item.id}>{JSON.stringify(item, null, 2)}</pre> // Convert item to JSON string for display
+          </div>
+          </>
         ))
       )}
     </div>
