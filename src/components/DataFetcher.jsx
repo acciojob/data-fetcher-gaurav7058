@@ -1,8 +1,7 @@
-// DataFetcher.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
-const DataFetcher = () => {
-  const API = "https://dummyjson.com/products";
+export default function DataFetcher() {
+    const API = "https://dummyjson.com/products";
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null); // State for error handling
 
@@ -16,11 +15,7 @@ const DataFetcher = () => {
           return response.json(); // Return the JSON response
         })
         .then((data) => {
-          if (data.products && data.products.length > 0) {
-            setProducts(data.products); // Update state with fetched products
-          } else {
-            setProducts([]); // Set to empty array if no products found
-          }
+          setProducts(data.products); // Update state with fetched products
         })
         .catch((err) => {
           setError(err.message); // Update state with error message
@@ -28,19 +23,16 @@ const DataFetcher = () => {
     };
     getData();
   }, []);
-
   return (
     <div>
-      {error && <p>Error: {error}</p>} {/* Display error if exists */}
+      {error && <h1>No data found</h1>} {/* Display error if exists */}
       {products.length === 0 ? (
-        <p>No data found</p> // Show no data message if array is empty
+        <p>Loading...</p> // Show loading message while fetching data
       ) : (
         products.map((item) => (
           <pre key={item.id}>{JSON.stringify(item, null, 2)}</pre> // Convert item to JSON string for display
         ))
       )}
     </div>
-  );
-};
-
-export default DataFetcher;
+  )
+}
